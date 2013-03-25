@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Make sure we’re using the latest Homebrew
+brew update
+
+# Upgrade any already-installed formulae
+brew upgrade
+
+# Install GNU core utilities (those that come with OS X are outdated)
+#brew install coreutils
+echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+brew install findutils
+
+# Install Bash 4
+#brew install bash
+
+# unpack
+brew install unrar
+
+# mp3 mp4 tools
+brew install ffmpeg
+brew install mp4v2
+brew install gpac
+brew install mp3wrap 
+brew install mad
+brew install libmad
+
+# better than grep
+brew install ack
+# sourcec ontrol
+brew install git
+# console web tools
+#brew install lynx
+brew install node
+#brew install curl
+brew install wget --enable-iri
+# shell have-to
+brew install rename
+brew install tree
+
+# Remove outdated versions from the cellar
+brew cleanup
