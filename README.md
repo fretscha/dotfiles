@@ -87,7 +87,7 @@ Suggestions/improvements
 
 ## Thanks to…
 
-* [Mathias Bynens](http://mathiasbynens.be/)[dotfiles repository](https://github.com/mathiasbynens/dotfiles.git)
+* [Mathias Bynens](http://mathiasbynens.be/) [dotfiles repository](https://github.com/mathiasbynens/dotfiles.git)
 * [Gianni Chiappetta](http://gf3.ca/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
 * [Matijs Brinkhuis](http://hotfusion.nl/) and his [dotfiles repository](https://github.com/matijs/dotfiles)
 * [Jan Moesen](http://jan.moesen.nu/) and his [ancient `.bash_profile`](https://gist.github.com/1156154) + [shiny _tilde_ repository](https://github.com/janmoesen/tilde)

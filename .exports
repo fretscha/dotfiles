@@ -25,6 +25,8 @@ export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=''
 
+# for iTerm sake
+export TERM=linux
 # project home
  #virtual envs workon home 
 export PROJECT_HOME=$HOME/projects

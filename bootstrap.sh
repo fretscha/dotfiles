@@ -15,3 +15,5 @@ else
 fi
 unset doIt
 source ~/.bash_profile
+
+ln -sf "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
