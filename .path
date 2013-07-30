@@ -1,5 +1,8 @@
 # Ensure user-installed binaries take precedence
-export PATH=$HOME/bin:$PATH
-export PATH=$PATH:/Library/PostgreSQL/9.2/bin
-export PATH=$PATH:/opt/X11/bin
-export PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH="/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+export PATH="$HOME/bin:$PATH"
+export PATH="$PATH:/Library/PostgreSQL/9.2/bin"
+export PATH="$PATH:/opt/X11/bin"
+## Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

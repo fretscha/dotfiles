@@ -4,9 +4,13 @@ git pull
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" -av . ~
 }
+function doItDry() {
+	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" -avn . ~
+}
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt
 else
+    doItDry
 	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -14,6 +18,7 @@ else
 	fi
 fi
 unset doIt
+unset doItDry
 source ~/.bash_profile
 
 ln -sf "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl

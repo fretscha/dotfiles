@@ -122,7 +122,7 @@ set smartcase
 " " curl -so ~/.vim/autoload/pathogen.vim
 " https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 " " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-" "" call pathogen#infect()
+call pathogen#infect()
 "
 "
 " "
@@ -135,7 +135,7 @@ set smartcase
 " " Settings for vim-powerline
 " " cd ~/.vim/bundle
 " " git clone git://github.com/Lokaltog/vim-powerline.git
-" "" set laststatus=2
+set laststatus=2
 "
 "
 " " Settings for ctrlp
