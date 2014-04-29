@@ -36,5 +36,12 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
+# add Django manage competion.
+[ -f ~/.django_completion ]  && source  ~/.django_completion
+
+# include local exports
+[ -f ~/.local_exports ] && source ~/.local_exports
+
 # finally setup virtualenvwrapper
-source /usr/local/share/python/virtualenvwrapper.sh
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+

@@ -1,24 +1,18 @@
 #!/bin/bash
 cd "$(dirname "${BASH_SOURCE}")"
+
 git pull
-function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" -av . ~
-}
-function doItDry() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" -avn . ~
-}
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
-	doIt
-else
-    doItDry
-	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
-	echo
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		doIt
-	fi
+
+tar -cHvf dotfiles_$(date +"%Y-%d-%m.%H-%M-%S").tar --exclude .git -C ~ $(cat index.txt)
+
+if [ $? -ne 0 ]; then
+    echo "ERROR Backup failed! Terminating."
+    exit 1
 fi
-unset doIt
-unset doItDry
+
+for i in $(cat index.txt); do
+        rm -rf ~/$i
+        ln -s $PWD/$i ~/$i
+done
 source ~/.bash_profile
 
-ln -sf "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl

@@ -17,7 +17,7 @@ alias pipupdateall='for i in $(pip freeze| cut -f 1 -d'=') ; do echo $i; pip ins
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/Projects"
+alias p="cd ~/projects"
 alias g="git"
 alias h="history"
 alias j="jobs"

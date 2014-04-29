@@ -163,3 +163,22 @@ function unquarantine() {
 		xattr -r -d "$attribute" "$@"
 	done
 }
+
+syspip(){
+   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+
+function watch()
+{
+    local delay=2
+    local lines=$(tput lines)
+    lines=$((${lines:-25} - 1))
+
+    while true
+    do
+        clear
+        "$@" | head -n $lines
+        sleep $delay
+    done
+}
