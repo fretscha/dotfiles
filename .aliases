@@ -12,6 +12,7 @@ alias hibernateoff="sudo pmset -a hibernatemode 7"
 
 #pip special
 alias pipupdateall='for i in $(pip freeze| cut -f 1 -d'=') ; do echo $i; pip install $i --upgrade; done'
+alias syspipupdateall='for i in $(syspip freeze| cut -f 1 -d=) ; do echo $i; syspip install $i --upgrade; done'
 
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
@@ -84,10 +85,13 @@ command -v md5sum > /dev/null || alias md5sum="md5"
 command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
 # Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
+§alias c="tr -d '\n' | pbcopy"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Recursively delete `.DS_Store` files
+alias cleanpy="find . -type f -name '*.pyc' -ls -delete"
 
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
@@ -136,4 +140,3 @@ done
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
-alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
