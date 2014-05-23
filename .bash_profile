@@ -45,3 +45,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # finally setup virtualenvwrapper
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
+# If possible, add tab completion for git
+[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash

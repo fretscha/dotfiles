@@ -3,7 +3,7 @@ cd "$(dirname "${BASH_SOURCE}")"
 
 git pull
 
-tar -cHvf dotfiles_$(date +"%Y-%d-%m.%H-%M-%S").tar --exclude .git -C ~ $(cat index.txt)
+#tar -cHvf dotfiles_$(date +"%Y-%d-%m.%H-%M-%S").tar --exclude .git -C ~ $(cat index.txt)
 
 if [ $? -ne 0 ]; then
     echo "ERROR Backup failed! Terminating."
