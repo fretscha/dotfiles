@@ -3,7 +3,6 @@
 .bash_profile
 .bash_prompt
 .bashrc
-.brew
 .django_completion
 .exports
 .extra
@@ -15,8 +14,6 @@
 .gvimrc
 .hushlogin
 .inputrc
-.osx
-.path
 .screenrc
 .tmux
 .tmux.conf
