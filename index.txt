@@ -3,6 +3,7 @@
 .bash_profile
 .bash_prompt
 .bashrc
+.config/powerline
 .django_completion
 .exports
 .extra

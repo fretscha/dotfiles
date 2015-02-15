@@ -140,15 +140,10 @@ call pathogen#infect()
 "
 "
 " " Settings for vim-powerline
-" " cd ~/.vim/bundle
-" " git clone git://github.com/Lokaltog/vim-powerline.git
+" " pip install https://github.com/Lokaltog/powerline/tarball/develop
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set laststatus=2
-set guifont=Inconsolata\ for\ Powerline:h12
-let g:Powerline_symbols='fancy'
-let g:Powerline_symbols='unicode'
 
-"
-"
 " " Settings for ctrlp
 " " cd ~/.vim/bundle
 " " git clone https://github.com/kien/ctrlp.vim.git
