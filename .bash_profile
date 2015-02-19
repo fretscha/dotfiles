@@ -34,25 +34,26 @@ complete -W "NSGlobalDomain" defaults
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
 
 # If possible, add tab completion for many more commands
-[ -f '/etc/bash_completion' ] && source '/etc/bash_completion'
+[ -f "/etc/bash_completion" ] && source "/etc/bash_completion"
 
 # add Django manage competion.
-[ -f '~/.django_completion' ]  && source  '~/.django_completion'
+[ -f "~/.django_completion" ]  && source  "~/.django_completion"
 
 # include local exports
-[ -f '~/.local_exports' ] && source '~/.local_exports'
+[ -f "~/.local_exports" ] && source "~/.local_exports"
 
 # finally setup virtualenvwrapper
-[ -f '/usr/local/bin/virtualenvwrapper.sh' ] && source '/usr/local/bin/virtualenvwrapper.sh'
+[ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh"
 
 # If possible, add tab completion for git
-[ -f '~/.git-completion.bash' ] && source '~/.git-completion.bash'
+[ -f "~/.git-completion.bash" ] && source "~/.git-completion.bash"
 
 # The next line updates PATH for the Google Cloud SDK.
-[ -f '~/projects/google-cloud-sdk/path.bash.inc' ] && source '~/projects/google-cloud-sdk/path.bash.inc'
+[ -f "~/projects/google-cloud-sdk/path.bash.inc" ] && source "~/projects/google-cloud-sdk/path.bash.inc"
 
 # The next line enables bash completion for gcloud.
-[ -f '~/projects/google-cloud-sdk/completion.bash.inc' ] && source '~/projects/google-cloud-sdk/completion.bash.inc'
+[ -f "~/projects/google-cloud-sdk/completion.bash.inc" ] && source "~/projects/google-cloud-sdk/completion.bash.inc"
 
 # powerline start up
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+_powerline="/usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh"
+[ -f $_powerline ] && source $_powerline
