@@ -70,6 +70,12 @@ function phpserver() {
 	php -S "${ip}:${port}"
 }
 
+function resisserver() {
+    redis-server /usr/local/etc/redis.conf
+}
+
+
+
 # Compare original and gzipped file size
 function gz() {
 	local origsize=$(wc -c < "$1")

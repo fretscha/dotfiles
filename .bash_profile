@@ -57,3 +57,4 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # powerline start up
 _powerline="/usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh"
 [ -f ${_powerline} ] && source ${_powerline}
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
