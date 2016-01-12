@@ -39,3 +39,6 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 # pip should only run if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
 
+export RBENV_ROOT="$(brew --prefix rbenv)"
+export GEM_HOME="$(brew --prefix)/opt/gems"
+export GEM_PATH="$(brew --prefix)/opt/gems"
