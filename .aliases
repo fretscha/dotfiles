@@ -12,7 +12,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias hibernateoff="sudo pmset -a hibernatemode 7"
     # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
     #alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm update npm; npm update -g; sudo gem update'
-    alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install -g npm ; npm update -g; sudo gem update'
+    alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install -g npm ; npm update -g'
 
     # Flush Directory Service cache
     alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
