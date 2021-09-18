@@ -12,8 +12,8 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
 # Prefer US English and use UTF-8
-export LANG="en_US"
-export LC_ALL="en_US.UTF-8"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
@@ -26,19 +26,22 @@ export CLICOLOR='Yes'
 export LSCOLORS=''
 
 # for iTerm sake
-export TERM=linux
-# project home
+export TERM="xterm-256color"
 
-# virtual envs workon home
-export PROJECT_HOME=$HOME/projects
-export WORKON_HOME=$HOME/projects/envs
-# virtualenv should use Distribute instead of legacy setuptools
-export VIRTUALENV_DISTRIBUTE=true
-# Centralized location for new virtual environments
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-# pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
+export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_VERBOSITY=-1
 
-export RBENV_ROOT="$(brew --prefix rbenv)"
-export GEM_HOME="$(brew --prefix)/opt/gems"
+#export RBENV_ROOT="$(brew --prefix rbenv)"
+export RBENV_ROOT="/usr/local/Cellar/rbenv/1.1.2"
+export GEM_HOME="/usr/local/opt/gems"
 export GEM_PATH="$(brew --prefix)/opt/gems"
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+export GOPATH=${HOME}/go
+
+export ANSIBLE_NOCOWS=1
+
+export HOMEBREW_NO_ANALYTICS=1:x
+
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"

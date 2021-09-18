@@ -61,6 +61,30 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
+function server3() {
+    local port="${1:-8000}"
+    sleep 1 && open "http://localhost:${port}/" &
+    python3 -m http.server ${port}
+}
+
+
+function certbot() {
+  docker run -it --rm  -v $HOME/CA/certbot/etc/letsencrypt:/etc/letsencrypt -v $HOME/CA/certbot/var/lib/letsencrypt:/var/lib/letsencrypt certbot/certbot $*
+}
+
+function jekyll() {
+   export JEKYLL_VERSION=3.8
+   docker pull jekyll/jekyll:$JEKYLL_VERSION
+   docker run --rm -p 4000:4000 -e JEKYLL_ENV=$JEKYLL_ENV --volume="$PWD:/srv/jekyll" --volume="$PWD/vendor/bundle:/usr/local/bundle" -it jekyll/jekyll:$JEKYLL_VERSION jekyll $*
+}
+
+function jekyll_bundle() {
+   export JEKYLL_VERSION=3.8
+   docker pull jekyll/jekyll:$JEKYLL_VERSION
+   docker run --rm --volume="$PWD:/srv/jekyll" --volume="$PWD/vendor/bundle:/usr/local/bundle"  -it jekyll/jekyll:$JEKYLL_VERSION  bundle 
+}
+
+
 # Start a PHP server from a directory, optionally specifying the port
 # (Requires PHP 5.4.0+.)
 function phpserver() {
@@ -170,14 +194,6 @@ function unquarantine() {
 	done
 }
 
-syspip(){
-   PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
-
-syspip3(){
-   PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
-}
-
 function watch()
 {
     local delay=2
@@ -204,17 +220,13 @@ function svim()
     vim $(sfind $1) 
 }
 
-function pwgen()
+
+function aes_enc()
 {
-    LC_ALL=C tr -dc 'A-Za-z0-9_!@#$%^&*()\-+=' < /dev/urandom | head -c${1:-16}
-    echo
+	openssl enc -aes-256-cbc -md sha512 -pbkdf2 -p -in $1 -out $2
 }
-# pip bash completion start
-_pip_completion()
+
+function aes_dec()
 {
-    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
-    COMP_CWORD=$COMP_CWORD \
-    PIP_AUTO_COMPLETE=1 $1 ) )
+	openssl enc -aes-256-cbc -md sha512 -pbkdf2 -d -in $1 -out $2
 }
-complete -o default -F _pip_completion pip
-# pip bash completion end

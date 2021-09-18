@@ -63,21 +63,17 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 fi
 
-#pip special
-alias pipupdateall='for i in $(pip freeze| cut -f 1 -d'=') ; do echo $i; pip install $i --upgrade; done'
-alias syspipupdateall='for i in $(syspip freeze| cut -f 1 -d=) ; do echo $i; syspip install $i --upgrade; done'
+# avoid system vim
+alias vim /usr/local/bin/vim
+
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 alias g="git"
 alias h="history"
-alias j="jobs"
 alias v="vim"
-alias m="mate"
-alias s="subl"
 alias o="open"
 alias oo="open ."
 
@@ -115,6 +111,7 @@ alias whois="whois -h whois-servers.net"
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias wifiscan="tshark -I -s0  -i en0 -w ~/monitor.pcap"
 
 # Canonical hex dump; some systems have this symlinked
 command -v hd > /dev/null || alias hd="hexdump -C"
@@ -127,7 +124,7 @@ alias c="tr -d '\n' | pbcopy"
 
 
 # Recursively delete `.pyc` files
-alias cleanpy="find . -type f -name '*.pyc' -ls -delete"
+alias cleanpy="find . -type f -name '*.pyc' -ls -delete && find . -type f -name '__pycache__' -ls -delete"
 
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
@@ -145,5 +142,14 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
 
+alias roulette='[ $[ $RANDOM % 6 ] = 0 ] && echo "päng" || echo "click"'
 
 alias notebook="ipython notebook --profile=nbserver"
+
+alias htrace.sh='docker run --rm -it --name htrace.sh htrace.sh'
+
+alias activate="source .venv/bin/activate"
+
+
+alias dphome_left='displayplacer "id:F466F621-B5FA-04A0-0800-CFA6C258DECD res:1440x900 color_depth:4 scaling:on origin:(0,0) degree:0" "id:B69C09AF-CA5F-E16E-ACE0-4403EE33581B res:3440x1440 hz:30 color_depth:4 scaling:off origin:(1440,-712) degree:0"'
+alias dphome_center='displayplacer "id:F466F621-B5FA-04A0-0800-CFA6C258DECD res:1440x900 color_depth:4 scaling:on origin:(0,0) degree:0" "id:B69C09AF-CA5F-E16E-ACE0-4403EE33581B res:3440x1440 hz:30 color_depth:4 scaling:off origin:(-927,-1440) degree:0"'

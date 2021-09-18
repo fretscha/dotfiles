@@ -2,7 +2,7 @@
 # * ${HOME}/.path can be used to extend `$PATH`.
 # * ${HOME}/.extra can be used for other settings you don’t want to commit.
 #for file in ${HOME}/.{path,bash_prompt,exports,aliases,functions,extra}; do
-for file in ${HOME}/.{path,exports,aliases,functions,extra}; do
+for file in ${HOME}/.{exports,path,aliases,functions,extra}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -34,7 +34,16 @@ complete -W "NSGlobalDomain" defaults
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
 
 # If possible, add tab completion for many more commands
-[ -f "/etc/bash_completion" ] && source "/etc/bash_completion"
+#[ -f "/etc/bash_completion" ] && source "/etc/bash_completion"
+
+#if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#    . $(brew --prefix)/etc/bash_completion
+#fi
+
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+    . /usr/local/share/bash-completion/bash_completion
+fi
+
 
 # add Django manage competion.
 [ -f "${HOME}/.django_completion" ]  && source  "${HOME}/.django_completion"
@@ -43,7 +52,7 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -f "${HOME}/.local_exports" ] && source "${HOME}/.local_exports"
 
 # finally setup virtualenvwrapper
-[ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh"
+#[ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh"
 
 # If possible, add tab completion for git
 [ -f "${HOME}/.git-completion.bash" ] && source "${HOME}/.git-completion.bash"
@@ -57,5 +66,13 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # powerline start up
 _powerline="/usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh"
 [ -f ${_powerline} ] && source ${_powerline}
+
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 eval $(/usr/libexec/path_helper -s)
+eval "$(pyenv init -)"
+export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
+
+export PATH="$HOME/.poetry/bin:$PATH"

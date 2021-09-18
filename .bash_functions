@@ -8,7 +8,3 @@ function server() {
     python -m SimpleHTTPServer "$port"
 }
 
-syspip(){
-   PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
-

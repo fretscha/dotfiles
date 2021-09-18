@@ -17,7 +17,7 @@
     go = checkout -B
     # Show verbose output about tags, branches or remotes
     tags = tag -l
-    branches = branch -a
+	branches = !legit branches
     remotes = remote -v
     # Credit an author on the latest commit
     credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
@@ -27,7 +27,12 @@
     undopush = push -f origin HEAD^:master
     #pretty colored log
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
+	switch = !legit switch
+	sync = !legit sync
+	publish = !legit publish
+	unpublish = !legit unpublish
+	undo = !legit undo
+    fap = fetch --all --prune
 [apply]
     # Detect whitespace errors when applying a patch
     whitespace = fix
@@ -42,7 +47,7 @@
 
 [color]
     # Use colors in Git commands that are capable of colored output when outputting to the terminal
-	ui = true
+	ui = auto
 [color "branch"]
     current = yellow reverse
     local = yellow
@@ -96,8 +101,8 @@
 	clean = git media clean %f
 	smudge = git media smudge %f
 	required = true
-[commit]
-	template = /Users/fts/.stCommitMsg
+#[commit]
+#	template = /Users/fts/.stCommitMsg
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

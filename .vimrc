@@ -62,7 +62,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim
-" http://www.vim.org/scripts/download_script.php?src_id=13400
+" https://www.vim.org/scripts/download_script.php?src_id=13400
 set t_Co=256
 color wombat256mod
 
@@ -72,6 +72,8 @@ color wombat256mod
 filetype off
 filetype plugin indent on
 syntax on
+
+autocmd Filetype yaml setlocal tabstop=2 ai colorcolumn=1,3,5,7,9,80
 
 " Disable Pylint on Save
 let g:pymode_lint_write = 0         " python-mode
@@ -90,7 +92,7 @@ set colorcolumn=80                  " line to show 81 character mark
 highlight ColorColumn ctermbg=233   " color of colorcolum
 set relativenumber                  " setting line numbers
 set cursorline                      " shows the horizontal cursor line
-
+set cursorcolumn
 
 " easier formatting of paragraphs
 vmap Q gq
@@ -129,7 +131,7 @@ set smartcase
 " " curl -so ~/.vim/autoload/pathogen.vim
 " https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
 " " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-call pathogen#infect()
+execute pathogen#infect()
 "
 "
 " "
@@ -138,10 +140,11 @@ call pathogen#infect()
 " "
 " ============================================================================
 "
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
 "
-" " Settings for vim-powerline
-" " pip install https://github.com/Lokaltog/powerline/tarball/develop
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set laststatus=2
 
 " " Settings for ctrlp
