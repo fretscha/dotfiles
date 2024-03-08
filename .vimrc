@@ -140,11 +140,7 @@ execute pathogen#infect()
 " "
 " ============================================================================
 "
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
-"
+set  rtp+=/usr/local/lib/python3.9/site-packages/powerline/bindings/vim/
 set laststatus=2
 
 " " Settings for ctrlp

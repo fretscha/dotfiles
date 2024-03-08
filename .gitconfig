@@ -33,6 +33,12 @@
 	unpublish = !legit unpublish
 	undo = !legit undo
     fap = fetch --all --prune
+    l1 = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    l2 = log --graph --oneline --decorate --all
+    l3 = !git log --oneline | grep
+    l4 = log -p -1
+    l5 = "!f() {  git log --after=\"$(date -j -v-$1d +%Y-%m-%d)\" --oneline; }; f" 
+
 [apply]
     # Detect whitespace errors when applying a patch
     whitespace = fix
@@ -108,3 +114,11 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
+[init]
+	defaultBranch = main

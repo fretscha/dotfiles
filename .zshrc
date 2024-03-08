@@ -10,32 +10,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# Only load Liquidprompt in interactive shells, not from a script or from scp
+[[ $- = *i* ]] && source ~/projects/liquidprompt/liquidprompt && source ~/projects/liquidprompt/themes/powerline/powerline.theme && lp_theme powerline_full
 
-function powerline_precmd() {
-    eval "$($HOME/go/bin/powerline-go \
-        -shell zsh \
-        -error $? \
-        -numeric-exit-codes \
-        -eval \
-        -modules venv,user,ssh,cwd \
-        -modules-right git,exit,jobs,time \
-        -cwd-max-depth 4 \
-        )"
-}
 
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
 
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -53,6 +34,10 @@ for file in ${HOME}/.{exports,path,aliases,docker_alias,functions,extra}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
+
+if command -v ngrok &>/dev/null; then
+    eval "$(ngrok completion)"
+fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

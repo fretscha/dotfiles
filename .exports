@@ -1,5 +1,5 @@
 # Set architecture flags
-export ARCHFLAGS="-arch x86_64"
+#export ARCHFLAGS="-arch x86_64"
 
 # Make vim the default editor
 export EDITOR="vim"
@@ -23,7 +23,7 @@ export MANPAGER="less -X"
 
 export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
-export LSCOLORS=''
+LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # for iTerm sake
 export TERM="xterm-256color"
@@ -38,6 +38,7 @@ export GEM_PATH="$(brew --prefix)/opt/gems"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
 export GOPATH=${HOME}/go
+export GOROOT="$(brew --prefix golang)/libexec"
 
 export ANSIBLE_NOCOWS=1
 

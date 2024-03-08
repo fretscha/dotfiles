@@ -1,10 +1,9 @@
 # Ensure user-installed binaries take precedence
 
 export PATH="$PATH:/opt/X11/bin"
-export PATH="$PATH:/Library/TeX/texbin"
-export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 export PATH="$HOME/.node/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/.pyenv/shims:${PATH}"
 
@@ -12,5 +11,6 @@ export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="$HOME/bin:$PATH"

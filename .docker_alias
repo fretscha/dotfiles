@@ -59,6 +59,10 @@ function dl-fn {
 	docker logs -f $1
 }
 
+function dcl-fn {
+	docker compose logs -f $*
+}
+
 function drun-fn {
 	docker run -it $1 $2
 }
@@ -102,6 +106,7 @@ alias dc=dc-fn
 alias dcu="docker compose up -d"
 alias dcd="docker compose down"
 alias dcr=dcr-fn
+alias dcl=dcl-fn
 alias dex=dex-fn
 alias di=di-fn
 alias dim="docker images"
